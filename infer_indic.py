@@ -68,6 +68,8 @@ if __name__ == "__main__":
     parser.add_argument("-s", "--sigma", default=1.0, type=float)
     parser.add_argument("--sampling_rate", default=22050, type=int)
     args = parser.parse_args()
+    if not os.path.exists(args.output_dir):
+        os.makedirs(args.output_dir)
     files = os.listdir(args.filelist_path)
     spk2files = {}
     for f in files:
